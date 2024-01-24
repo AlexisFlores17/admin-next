@@ -6,8 +6,6 @@ export async function GET(request: Request) {
     //purgar base de datos
      await prisma.todo.deleteMany();
 
-    //Crear seed
-
     await prisma.todo.createMany({
         data:[
             { description:"Piedra del alma", complete:true},
@@ -21,3 +19,4 @@ export async function GET(request: Request) {
     message:'Seed executed'
   })
 }
+
