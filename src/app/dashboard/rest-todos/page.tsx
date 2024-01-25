@@ -1,6 +1,7 @@
 import prisma from "@/lib/prisma";
 import { NewTodo, TodosGrid } from "@/todos";
-
+export const dynamic = 'force-dynamic' 
+export const revalidate = 0
 
 export const metadata = {
  title: 'Listado de Todos',
