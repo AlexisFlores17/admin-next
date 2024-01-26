@@ -1,12 +1,31 @@
 // Admin Dashboard https://tailwindcomponents.com/component/dashboard-12
+import { cookies } from "next/headers";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
-  CiBellOn,
   CiChat1,
   CiMenuBurger,
   CiSearch,
+  CiShoppingBasket,
 } from "react-icons/ci";
 
+  const getTotalCount = (cart:{[id:string]:number}):number=>{
+     let items = 0;
+    Object.values(cart).forEach( value =>{
+      items += value as number;
+    })
+
+     return items;
+
+
+  }
 export const Topmenu = () => {
+
+  const cookieStore = cookies();
+  const cart = JSON.parse(cookieStore.get('cart')?.value ?? '{}');
+  
+  const totalItems = getTotalCount(cart);
+
   return (
     <>
       {/* TODO: src/components <TopMenu /> */}
@@ -40,9 +59,14 @@ export const Topmenu = () => {
             <button className="flex items-center justify-center w-10 h-10 rounded-xl border bg-gray-100 focus:bg-gray-100 active:bg-gray-200">
               <CiChat1 size={25} />
             </button>
-            <button className="flex items-center justify-center w-10 h-10 rounded-xl border bg-gray-100 focus:bg-gray-100 active:bg-gray-200">
-              <CiBellOn size={25} />
-            </button>
+            <Link href={"/dashboard/cart"} className="p-2 flex items-center justify-center h-10 rounded-xl border bg-gray-100 focus:bg-gray-100 active:bg-gray-200">
+              {
+                totalItems > 0 && (
+                  <span className="text-sm mr-2 text-blue-800 font-bold">{ totalItems}</span>
+                )
+              }
+              <CiShoppingBasket size={25} />
+            </Link>
           </div>
         </div>
       </div>

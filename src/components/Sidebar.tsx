@@ -5,7 +5,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import { SideBarItem } from ".";
-import { IoCalendarClearOutline, IoCheckboxOutline, IoCodeWorkingOutline, IoListOutline } from "react-icons/io5";
+import { IoCalendarClearOutline, IoCartOutline, IoCheckboxOutline, IoCodeWorkingOutline, IoListOutline } from "react-icons/io5";
 
 const menuItem = [
   {
@@ -26,6 +26,11 @@ const menuItem = [
     icon: <IoCodeWorkingOutline />,
     title: "Cookies",
     path: "/dashboard/cookies"
+  },
+  {
+    icon: <IoCartOutline />,
+    title: "Carrito",
+    path: "/dashboard/products"
   },
 ]
 
