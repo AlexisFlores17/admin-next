@@ -22,6 +22,10 @@ docker compose up -d
 7. Ejecutar el seed para [crear la base de datos local](localhost:3000/api/seed)
 
 
+## Nota: Usuario por defecto
+__usuario:__ test1@mail.com
+__password:__ 123456
+
 # Prisma commands
 
 ```

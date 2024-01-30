@@ -46,6 +46,8 @@ export const Sidebar = async() => {
 
   const session = await getServerSession(authOptions);
 
+  const userRoles = session?.user?.roles ?? ["usuario generico"]
+
   const avatarUrl = (session?.user?.image) ? session.user.image : "https://tailus.io/sources/blocks/stats-cards/preview/images/second_user.webp";
 
   const userName = session?.user?.name ?? "usuario generico"
@@ -79,7 +81,7 @@ export const Sidebar = async() => {
                 userName
               }
             </h5>
-            <span className="hidden text-gray-400 lg:block">Admin</span>
+            <span className="hidden text-gray-400 lg:block capitalize">{userRoles.join(",")}</span>
           </div>
           <ul className="space-y-2 tracking-wide mt-8">
             {

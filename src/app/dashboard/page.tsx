@@ -17,12 +17,18 @@ export default async function DashboardPage() {
     redirect("api/auth/signin")
   }
   return (
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
+      <div className="grid gap-6 md:grid-cols- ">
         <WidgetItem title="Usuario conectado S-side" >
           <div className="flex flex-col">
             <span>{session.user?.name}</span>
             <span>{session.user?.email}</span>
             <span>{session.user?.image}</span>
+
+            <div>
+              {
+                JSON.stringify(session)
+              }
+            </div>
           </div>
         </WidgetItem>
       </div>
